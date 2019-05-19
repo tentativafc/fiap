@@ -1,4 +1,4 @@
-#Exercícios 3. Arquitetura de dados
+# Exercícios 3. Arquitetura de dados
 
 ## Comandos
 
