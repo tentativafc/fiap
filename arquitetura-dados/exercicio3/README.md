@@ -20,7 +20,7 @@ mongoimport -h 127.0.0.1:27017 -d cartola -c partidas --type csv --file data/201
 mongoimport -h 127.0.0.1:27017 -d cartola -c medias --type csv --file data/2018-medias-jogadores.csv --headerline
 ```
 
-### Sandobox
+### Sandbox
 ```sh
 mongo --host 127.0.0.1 --port 27017
 
