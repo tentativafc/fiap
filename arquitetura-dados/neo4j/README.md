@@ -62,6 +62,7 @@ MATCH (s:Selecao)-[rel:PARA_A_COPA]->(c:CopaDoMundo) RETURN s, rel, c
 ```sh
 USING PERIODIC COMMIT 500
 LOAD CSV WITH HEADERS FROM 'file:///lineups.csv' AS line
+
 MATCH (j:Jogador {id: line.player_id})
 MATCH (p:Partida {id: line.match_id})
 
@@ -81,6 +82,7 @@ MATCH (e:Estatistica)-[rel:NA_PARTIDA]->(p:Partida) RETURN e, rel, p
 ```sh
 USING PERIODIC COMMIT 500
 LOAD CSV WITH HEADERS FROM 'file:///events.csv' AS line
+
 MATCH (j:Jogador {id: line.player_id})
 MATCH (p:Partida {id: line.match_id})
 MATCH (e:Estatistica)<-[:TITULAR|:RESERVA]-(j)
