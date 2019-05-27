@@ -11,8 +11,6 @@ docker run --publish=7474:7474 --publish=7687:7687 --volume=/home/marcelo/Docume
 ### Importando os dados
 
 
-Importação das partidas
-
 ```sh
 MATCH(n) DETACH DELETE n
 ```
@@ -91,43 +89,8 @@ MATCH (e:Estatistica)-[rel:MARCOU_UM_GOL]->(g:Gol) RETURN e, rel, g
 MATCH (e:Estatistica)-[rel:RECEBEU_CARTAO]->(c:Cartao) RETURN e, rel, c
 ```
 
-
-CREATE (m:Match { h_score: line.h_score, stadium: line.stadium})
-
-LOAD CSV WITH HEADERS FROM 'file:///squads.csv' AS line
-CREATE (s:Squad { year: line.year, player_id: line.player_id, player_name: line.player_name})
-```
-
 ### Questões:
 
 1. Estádios com mais gols
 
 2. Jogadores que participaram em mais do que uma copa
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-WITH split(line.host, '/') as splitted_country
-UNWIND range(0, size(splitted_country) -1) as i
-MERGE (pais_realizador:Pais {nome: splitted_country[i]})
